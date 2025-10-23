@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:app/theme/color_const.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -19,9 +20,9 @@ class PrimaryButton extends StatelessWidget {
         style: ElevatedButton.styleFrom(
           elevation: 4,
           foregroundColor: Colors.white,
-          backgroundColor: const Color(0xFF1A237E),
+          backgroundColor: ColorConst.primary,
           shadowColor: Colors.black.withOpacity(0.25),
-          disabledBackgroundColor: const Color(0xFF1A237E).withOpacity(0.6),
+          disabledBackgroundColor: ColorConst.primary.withOpacity(0.6),
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
         ),
         child: Center(
@@ -35,8 +36,8 @@ class PrimaryButton extends StatelessWidget {
                   label,
                   style: GoogleFonts.roboto(
                     fontSize: 16,
-                    color: Colors.white,
                     letterSpacing: 0.5,
+                    color: Colors.white,
                     fontWeight: FontWeight.w500,
                   ),
                 ),
