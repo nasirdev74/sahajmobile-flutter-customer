@@ -10,7 +10,7 @@ class ProductModel {
   @JsonKey(defaultValue: '')
   final String model;
   @JsonKey(defaultValue: 0)
-  final double price;
+  final int price;
 
   const ProductModel({required this.brand, required this.model, required this.price});
 

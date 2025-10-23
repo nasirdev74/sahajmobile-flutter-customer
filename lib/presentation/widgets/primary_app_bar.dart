@@ -2,17 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class PrimaryAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const PrimaryAppBar({
-    super.key,
-    required this.title,
-    this.actions,
-    this.onBackPressed,
-    this.showLeading = true,
-    this.centerTitle = false,
-  });
+  const PrimaryAppBar({super.key, required this.title, this.actions, this.onBackPressed, this.showLeading = true});
 
   final String title;
-  final bool centerTitle;
   final bool showLeading;
   final List<Widget>? actions;
   final VoidCallback? onBackPressed;
@@ -24,7 +16,7 @@ class PrimaryAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       elevation: 2,
-      centerTitle: centerTitle,
+      centerTitle: false,
       backgroundColor: Colors.white,
       surfaceTintColor: Colors.transparent,
       shadowColor: Colors.black.withOpacity(0.1),

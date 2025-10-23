@@ -1,4 +1,4 @@
-import 'package:intl/intl.dart';
+import 'package:app/core/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:app/domain/entities/product_entity.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -11,10 +11,8 @@ class ProductWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final currencyFormatter = NumberFormat.simpleCurrency(decimalDigits: 0, name: 'TK ');
-
     return Material(
-      color: const Color(0xFFF6F5Fa),
+      color: const Color(0xFFf2fcfb),
       borderRadius: BorderRadius.circular(5.r),
       child: ListTile(
         onTap: onTap,

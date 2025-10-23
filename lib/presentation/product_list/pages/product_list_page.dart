@@ -17,24 +17,24 @@ class ProductListPage extends StatefulWidget {
 
 class _ProductListPageState extends State<ProductListPage> {
   final List<ProductEntity> productList = [
-    const ProductEntity(brand: 'Infinix', model: 'Smart 9 (3+64)', price: 9999.00),
-    const ProductEntity(brand: 'Infinix', model: 'Smart 9 HD (4+64)', price: 10299.00),
-    const ProductEntity(brand: 'Infinix', model: 'Smart 9 (4+128)', price: 11999.00),
-    const ProductEntity(brand: 'Infinix', model: 'Smart 8 (4+64)', price: 10499.00),
-    const ProductEntity(brand: 'Infinix', model: 'Hot 30i (4+64)', price: 10499.00),
+    const ProductEntity(brand: 'Infinix', model: 'Smart 9 (3+64)', price: 10000),
+    const ProductEntity(brand: 'Infinix', model: 'Smart 9 HD (4+64)', price: 10299),
+    const ProductEntity(brand: 'Infinix', model: 'Smart 9 (4+128)', price: 11999),
+    const ProductEntity(brand: 'Infinix', model: 'Smart 8 (4+64)', price: 10499),
+    const ProductEntity(brand: 'Infinix', model: 'Hot 30i (4+64)', price: 10499),
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
       resizeToAvoidBottomInset: false,
+      backgroundColor: Colors.white,
       appBar: const PrimaryAppBar(title: 'Products', actions: [], showLeading: false),
       body: ListView.separated(
         itemCount: productList.length,
-        padding: EdgeInsets.symmetric(horizontal: 20.w),
         physics: const AlwaysScrollableScrollPhysics(),
         separatorBuilder: (_, _) => SizedBox(height: 5.w),
+        padding: EdgeInsets.only(top: 10.w, left: 20.w, right: 20.w, bottom: 100.w),
         itemBuilder: (context, index) {
           final product = productList[index];
           return ProductWidget(
