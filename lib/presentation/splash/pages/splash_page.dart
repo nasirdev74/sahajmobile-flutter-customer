@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:app/gen/assets.gen.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:app/presentation/installment_plan/pages/installment_plan_page.dart';
+import 'package:app/presentation/product_list/pages/product_list_page.dart';
 
 class SplashPage extends StatefulWidget {
   const SplashPage({super.key});
@@ -19,7 +19,7 @@ class _SplashPageState extends State<SplashPage> {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) {
       Future.delayed(const Duration(seconds: 1), () {
-        context.pushNamed(InstallmentPlanPage.route, extra: 11999.99);
+        context.go(ProductListPage.route);
       });
     });
   }

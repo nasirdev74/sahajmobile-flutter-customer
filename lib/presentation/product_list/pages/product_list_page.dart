@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:app/domain/entities/product_entity.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:app/presentation/widgets/primary_app_bar.dart';
+import 'package:app/presentation/product_list/widgets/product_widget.dart';
+import 'package:app/presentation/installment_plan/pages/installment_plan_page.dart';
 
 class ProductListPage extends StatefulWidget {
   const ProductListPage({super.key});
@@ -21,6 +26,23 @@ class _ProductListPageState extends State<ProductListPage> {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(backgroundColor: Colors.indigo);
+    return Scaffold(
+      backgroundColor: Colors.white,
+      resizeToAvoidBottomInset: false,
+      appBar: const PrimaryAppBar(title: 'Products', actions: [], showLeading: false),
+      body: ListView.separated(
+        itemCount: productList.length,
+        padding: EdgeInsets.symmetric(horizontal: 20.w),
+        physics: const AlwaysScrollableScrollPhysics(),
+        separatorBuilder: (_, _) => SizedBox(height: 5.w),
+        itemBuilder: (context, index) {
+          final product = productList[index];
+          return ProductWidget(
+            product: product,
+            onTap: () => context.pushNamed(InstallmentPlanPage.route, extra: product.price),
+          );
+        },
+      ),
+    );
   }
 }

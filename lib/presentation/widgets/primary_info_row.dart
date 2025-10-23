@@ -3,8 +3,8 @@ import 'package:app/theme/color_const.dart';
 import 'package:app/theme/app_text_theme.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class InfoRow extends StatelessWidget {
-  const InfoRow({
+class PrimaryInfoRow extends StatelessWidget {
+  const PrimaryInfoRow({
     super.key,
     required this.label,
     required this.value,

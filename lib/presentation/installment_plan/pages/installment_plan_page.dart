@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:app/core/app_constant.dart';
 import 'package:app/theme/color_const.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:app/presentation/core/primary_app_bar.dart';
-import 'package:app/presentation/installment_plan/widgets/info_row.dart';
-import 'package:app/presentation/installment_plan/widgets/bottom_bar.dart';
+import 'package:app/presentation/widgets/primary_app_bar.dart';
+import 'package:app/presentation/widgets/primary_info_row.dart';
+import 'package:app/presentation/widgets/primary_bottom_bar.dart';
 import 'package:app/presentation/installment_plan/widgets/info_banner.dart';
 import 'package:app/presentation/installment_plan/widgets/term_selector.dart';
 import 'package:app/presentation/installment_plan/widgets/down_payment_selector.dart';
+import 'package:app/presentation/confirm_installment/pages/confirm_installment_page.dart';
 
 class InstallmentPlanPage extends StatefulWidget {
   const InstallmentPlanPage({super.key, required this.orderAmount});
@@ -30,8 +32,11 @@ class _InstallmentPlanPageState extends State<InstallmentPlanPage> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: const Color(0xFFF6F5Fa),
-      bottomNavigationBar: const InstallmentPlanPageBottomBar(),
       appBar: const PrimaryAppBar(title: 'Installment Plan'),
+      bottomNavigationBar: PrimaryBottomBar(
+        onPressed: () => context.pushNamed(ConfirmInstallmentPage.route),
+        label: 'Next',
+      ),
       body: SafeArea(
         child: Column(
           children: [
@@ -40,7 +45,7 @@ class _InstallmentPlanPageState extends State<InstallmentPlanPage> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    InfoRow(
+                    PrimaryInfoRow(
                       label: 'Order Amount',
                       valueColor: ColorConst.primary,
                       padding: EdgeInsets.symmetric(vertical: 20.w),
@@ -49,7 +54,7 @@ class _InstallmentPlanPageState extends State<InstallmentPlanPage> {
                     SizedBox(height: 10.w),
                     const InfoBanner(text: 'Loan Service Provided by ${AppConstant.appName}'),
                     Divider(height: 1.w, color: Colors.grey.shade200, thickness: 1.w),
-                    InfoRow(
+                    PrimaryInfoRow(
                       label: 'Down Payment',
                       value: 'TK 234.23',
                       valueColor: ColorConst.primary,
@@ -60,25 +65,25 @@ class _InstallmentPlanPageState extends State<InstallmentPlanPage> {
                       onChanged: (p) => setState(() => downPaymentPercent = p),
                     ),
 
-                    InfoRow(
+                    PrimaryInfoRow(
                       label: 'Monthly Payment',
                       value: 'Pay in $terms Terms',
                       padding: EdgeInsets.only(top: 20.w),
                     ),
                     TermSelector(selectedTerms: terms, onChanged: (t) => setState(() => terms = t)),
                     SizedBox(height: 10.w),
-                    InfoRow(
+                    PrimaryInfoRow(
                       label: 'Service Fee Rate',
                       value: '2%/Month',
                       padding: EdgeInsets.only(top: 20.w, bottom: 10.w),
                     ),
-                    InfoRow(
+                    PrimaryInfoRow(
                       label: 'On-site Payment',
                       value: 'TK ${monthlyPayment.toStringAsFixed(0)}',
                       valueColor: ColorConst.primary,
                       padding: EdgeInsets.symmetric(vertical: 10.w),
                     ),
-                    InfoRow(
+                    PrimaryInfoRow(
                       label: 'Monthly Payment',
                       value: 'TK ${monthlyPayment.toStringAsFixed(0)}',
                       valueColor: ColorConst.primary,

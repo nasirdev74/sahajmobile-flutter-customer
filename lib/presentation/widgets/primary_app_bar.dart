@@ -5,15 +5,15 @@ class PrimaryAppBar extends StatelessWidget implements PreferredSizeWidget {
   const PrimaryAppBar({
     super.key,
     required this.title,
-    this.leading,
     this.actions,
     this.onBackPressed,
+    this.showLeading = true,
     this.centerTitle = false,
   });
 
   final String title;
-  final Widget? leading;
   final bool centerTitle;
+  final bool showLeading;
   final List<Widget>? actions;
   final VoidCallback? onBackPressed;
 
@@ -37,14 +37,12 @@ class PrimaryAppBar extends StatelessWidget implements PreferredSizeWidget {
           color: const Color(0xFF212121),
         ),
       ),
-      leading:
-          leading ??
-          (Navigator.canPop(context)
-              ? IconButton(
-                  icon: const Icon(Icons.arrow_back_ios_new, color: Color(0xFF212121), size: 20),
-                  onPressed: onBackPressed ?? () => Navigator.maybePop(context),
-                )
-              : null),
+      leading: showLeading
+          ? IconButton(
+              icon: const Icon(Icons.arrow_back_ios_new, color: Color(0xFF212121), size: 20),
+              onPressed: onBackPressed ?? () => Navigator.maybePop(context),
+            )
+          : null,
       actions:
           actions ??
           [

@@ -5,7 +5,7 @@ import 'package:app/core/app_router.dart';
 import 'package:app/core/app_constant.dart';
 import 'package:app/l10n/app_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:app/presentation/core/connectivity_monitor.dart';
+import 'package:app/presentation/widgets/connectivity_monitor.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
