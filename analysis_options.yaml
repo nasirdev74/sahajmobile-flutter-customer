@@ -1,0 +1,39 @@
+include: package:flutter_lints/flutter.yaml
+
+linter:
+  rules:
+    prefer_const_constructors: true
+    prefer_const_literals_to_create_immutables: true
+    prefer_const_constructors_in_immutables: true
+
+    # Formatting rules for beautiful code
+    curly_braces_in_flow_control_structures: true  # Enforce braces for clarity
+    empty_statements: false  # Prevent empty statements for cleaner code
+    unnecessary_new: false  # Remove deprecated 'new' keyword
+    prefer_single_quotes: true
+
+    # Code style for idiomatic Dart/Flutter
+    avoid_empty_else: true  # Remove empty else clauses
+    prefer_final_fields: true  # Encourage immutability
+    unnecessary_brace_in_string_interps: false  # Avoid unnecessary braces in string interpolation
+    always_declare_return_types: true  # Explicit return types for clarity
+    annotate_overrides: true  # Enforce @override annotations
+    unnecessary_this: false  # Avoid redundant 'this' usage
+
+    # Flutter-specific for cleaner widget code
+    avoid_unnecessary_containers: true  # Remove redundant Containers
+    use_key_in_widget_constructors: true  # Enforce keys for widgets
+    avoid_returning_null_for_future: true  # Better async handling
+    sized_box_for_whitespace: true  # Use SizedBox instead of Container for spacing
+
+analyzer:
+  errors:
+    invalid_annotation_target: ignore
+  plugins:
+    - custom_lint
+  exclude:
+    - "**/*.g.dart"  # Exclude generated files
+    - "**/*.freezed.dart"  # Exclude Freezed-generated files
+  language:
+    strict-inference: true  # Enforce type inference
+    strict-raw-types: false  # Allow some flexibility with generics
