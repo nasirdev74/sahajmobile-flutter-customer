@@ -3,11 +3,11 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class PrimaryButton extends StatelessWidget {
-  final String label;
-  final VoidCallback? onPressed;
-  final bool isLoading;
-
   const PrimaryButton({super.key, required this.label, this.onPressed, this.isLoading = false});
+
+  final String label;
+  final bool isLoading;
+  final VoidCallback? onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -17,29 +17,30 @@ class PrimaryButton extends StatelessWidget {
       child: ElevatedButton(
         onPressed: isLoading ? null : onPressed,
         style: ElevatedButton.styleFrom(
-          backgroundColor: const Color(0xFF1A237E),
-          foregroundColor: Colors.white,
-          disabledBackgroundColor: const Color(0xFF1A237E).withOpacity(0.6),
           elevation: 4,
+          foregroundColor: Colors.white,
+          backgroundColor: const Color(0xFF1A237E),
           shadowColor: Colors.black.withOpacity(0.25),
+          disabledBackgroundColor: const Color(0xFF1A237E).withOpacity(0.6),
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-          padding: const EdgeInsets.symmetric(vertical: 16),
         ),
-        child: isLoading
-            ? const SizedBox(
-                height: 20,
-                width: 20,
-                child: CircularProgressIndicator(color: Colors.white, strokeWidth: 2),
-              )
-            : Text(
-                label,
-                style: GoogleFonts.roboto(
-                  fontSize: 16,
-                  color: Colors.white,
-                  letterSpacing: 0.5,
-                  fontWeight: FontWeight.w500,
+        child: Center(
+          child: isLoading
+              ? const SizedBox(
+                  width: 20,
+                  height: 20,
+                  child: CircularProgressIndicator(color: Colors.white, strokeWidth: 2),
+                )
+              : Text(
+                  label,
+                  style: GoogleFonts.roboto(
+                    fontSize: 16,
+                    color: Colors.white,
+                    letterSpacing: 0.5,
+                    fontWeight: FontWeight.w500,
+                  ),
                 ),
-              ),
+        ),
       ),
     );
   }
