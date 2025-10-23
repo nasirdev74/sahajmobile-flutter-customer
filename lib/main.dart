@@ -2,7 +2,6 @@ import 'package:app/di/injector.dart';
 import 'package:flutter/material.dart';
 import 'package:app/core/settings.dart';
 import 'package:app/core/app_router.dart';
-import 'package:app/theme/app_theme.dart';
 import 'package:app/core/app_constant.dart';
 import 'package:app/l10n/app_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -37,8 +36,6 @@ class _SahajMobileCustomerAppState extends State<SahajMobileCustomerApp> {
           data: MediaQueryData.fromView(View.of(context)).copyWith(alwaysUse24HourFormat: false),
           child: MaterialApp.router(
             locale: locale,
-            theme: AppTheme.light,
-            darkTheme: AppTheme.dark,
             themeMode: ThemeMode.light,
             title: AppConstant.appName,
             debugShowCheckedModeBanner: false,
