@@ -19,7 +19,7 @@ class _SplashPageState extends State<SplashPage> {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) {
       Future.delayed(const Duration(seconds: 1), () {
-        context.go(InstallmentPlanPage.route);
+        context.pushNamed(InstallmentPlanPage.route, extra: 11999.99);
       });
     });
   }

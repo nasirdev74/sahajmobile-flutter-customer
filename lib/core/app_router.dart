@@ -17,7 +17,7 @@ class AppRouter {
       GoRoute(
         path: InstallmentPlanPage.route,
         name: InstallmentPlanPage.route,
-        builder: (_, _) => const InstallmentPlanPage(),
+        builder: (_, state) => InstallmentPlanPage(orderAmount: state.extra as double? ?? 0),
       ),
     ],
     errorBuilder: (context, state) => Scaffold(body: Center(child: Text('Error: ${state.error}'))),
