@@ -6,8 +6,8 @@ targets:
           explicit_to_json: true
         generate_for:
           include:
-            - lib/presentation/**/data/models/**/*.dart
-            - lib/presentation/**/data/models/*.dart
+            - lib/data/models/**/*.dart
+            - lib/data/models/*.dart
             - lib/models/*.dart
       injectable_generator:
         generate_for:
