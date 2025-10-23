@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:injectable/injectable.dart';
 import 'package:app/presentation/splash/pages/splash_page.dart';
+import 'package:app/presentation/product_list/pages/product_list_page.dart';
 import 'package:app/presentation/installment_plan/pages/installment_plan_page.dart';
+import 'package:app/presentation/confirm_installment/pages/confirm_installment_page.dart';
 
 final GlobalKey<NavigatorState> rootNavigator = GlobalKey(debugLabel: 'root');
 final GlobalKey<NavigatorState> shellNavigator = GlobalKey(debugLabel: 'shell');
@@ -14,10 +16,16 @@ class AppRouter {
     initialLocation: SplashPage.route,
     routes: [
       GoRoute(path: SplashPage.route, name: SplashPage.route, builder: (_, _) => const SplashPage()),
+      GoRoute(path: ProductListPage.route, name: ProductListPage.route, builder: (_, _) => const ProductListPage()),
       GoRoute(
         path: InstallmentPlanPage.route,
         name: InstallmentPlanPage.route,
         builder: (_, state) => InstallmentPlanPage(orderAmount: state.extra as double? ?? 0),
+      ),
+      GoRoute(
+        name: ConfirmInstallmentPage.route,
+        path: ConfirmInstallmentPage.route,
+        builder: (_, _) => const ConfirmInstallmentPage(),
       ),
     ],
     errorBuilder: (context, state) => Scaffold(body: Center(child: Text('Error: ${state.error}'))),
